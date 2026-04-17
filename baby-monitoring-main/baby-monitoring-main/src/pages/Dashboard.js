@@ -34,6 +34,7 @@ function fmtDate(ts) {
 
 // ── Component ─────────────────────────────────────────────────
 function Dashboard() {
+  const streamUrl = "/video-proxy";
   const [events, setEvents] = useState([]);
   const [status, setStatus] = useState("off");
   const [drawing, setDrawing] = useState(false);
@@ -195,7 +196,7 @@ function Dashboard() {
           <div className="video-frame" ref={containerRef}>
             {status === "on" ? (
               <img
-                src={process.env.REACT_APP_STREAM_URL}
+                src={streamUrl}
                 alt="Live camera feed"
               />
             ) : (
