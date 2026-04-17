@@ -1,0 +1,32 @@
+{
+  "theme": "default",
+  "look": "classic",
+  "fontFamily": "Times New Roman",
+  "themeVariables": {
+    "background": "#ffffff",
+    "primaryColor": "#ffffff",
+    "secondaryColor": "#ffffff",
+    "tertiaryColor": "#ffffff",
+    "primaryTextColor": "#111111",
+    "lineColor": "#111111"
+  },
+  "flowchart": {
+    "curve": "basis",
+    "nodeSpacing": 35,
+    "rankSpacing": 40,
+    "padding": 10
+  },
+  "sequence": {
+    "diagramMarginY": 20,
+    "diagramMarginX": 20,
+    "messageMargin": 20,
+    "width": 120,
+    "height": 40,
+    "boxMargin": 10,
+    "noteMargin": 10,
+    "messageAlign": "center"
+  },
+  "state": {
+    "dividerMargin": 8
+  }
+}

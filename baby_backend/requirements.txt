@@ -1,0 +1,10 @@
+opencv-python
+numpy
+sounddevice
+scipy
+librosa
+firebase-admin
+flask
+flask-cors
+joblib
+scikit-learn

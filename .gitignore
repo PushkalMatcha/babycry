@@ -1,0 +1,23 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+
+# Environment and Secrets
+.env
+.env.local
+firebase_key.json
+*.pem
+
+# IDE
+.vscode/
+.idea/
+.DS_Store

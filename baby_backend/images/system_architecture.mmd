@@ -1,0 +1,21 @@
+graph TD
+    A[Camera] --> B[Person Detector<br/>MobileNet-SSD]
+    B --> C[Safe Zone Check]
+    C -->|Outside| D[Event: baby_moved]
+    C -->|No person timeout| E[Event: no_baby]
+
+    F[Microphone] --> G[Audio Window]
+    G --> H[MFCC Features]
+    H --> I[SVM Classifier]
+    I -->|cry or uncertain| J[Event: cry_detected]
+
+    K[Firebase<br/>control/status] --> L[Monitor Controller]
+    L --> B
+    L --> G
+
+    D --> M[Firebase events]
+    E --> M
+    J --> M
+
+    B --> N[Flask MJPEG Stream]
+    N --> O[Web Client]

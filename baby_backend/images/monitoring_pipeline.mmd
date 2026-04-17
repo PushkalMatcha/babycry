@@ -1,0 +1,24 @@
+flowchart TB
+    S[Start] --> C1{Monitoring ON?}
+    C1 -- No --> OFF[Display and stream only]
+    OFF --> C1
+
+    C1 -- Yes --> V1[Read Frame]
+    V1 --> V2[Detect Person]
+    V2 --> V3{Person Detected?}
+    V3 -- No --> E1[Log no_baby at interval]
+    V3 -- Yes --> V4[Compute Center]
+    V4 --> V5{Inside Safe Zone?}
+    V5 -- No --> E2[Log baby_moved]
+    V5 -- Yes --> A1[Trigger periodic audio]
+
+    A1 --> A2[Record Audio]
+    A2 --> A3[MFCC + SVM]
+    A3 --> A4{cry or uncertain?}
+    A4 -- Yes --> E3[Log cry_detected]
+    A4 -- No --> LOOP[Continue Monitoring]
+
+    E1 --> LOOP
+    E2 --> LOOP
+    E3 --> LOOP
+    LOOP --> C1

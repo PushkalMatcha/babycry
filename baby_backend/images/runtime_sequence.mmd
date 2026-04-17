@@ -1,0 +1,26 @@
+sequenceDiagram
+    participant Cam as Camera
+    participant Core as Monitor Core
+    participant Aud as Audio Module
+    participant FB as Firebase
+    participant UI as Stream Client
+
+    loop Real-time loop
+        Cam->>Core: frame
+        Core->>FB: get control/status
+        alt status = on
+            Core->>Core: detect person and check zone
+            alt outside zone
+                Core->>FB: push baby_moved
+            end
+            Core->>Aud: trigger audio window
+            Aud->>Aud: record, extract MFCC, classify
+            alt cry or uncertain
+                Aud->>Core: callback(true)
+                Core->>FB: push cry_detected
+            end
+        else status = off
+            Core->>Core: skip monitoring logic
+        end
+        Core->>UI: MJPEG frame
+    end

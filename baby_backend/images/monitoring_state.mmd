@@ -1,0 +1,14 @@
+%%{init: {'flowchart': {'curve': 'linear'}}}%%
+flowchart TB
+    START([Start]) --> Idle[Idle]
+    Idle -->|control/status = on| Active[Active]
+    Active -->|control/status = off| Suspended[Suspended]
+    Suspended -->|control/status = on| Active
+
+    Active -->|outside safe zone| AlertMove[AlertMove]
+    Active -->|cry positive| AlertCry[AlertCry]
+    Active -->|no person timeout| AlertNoBaby[AlertNoBaby]
+
+    AlertMove --> Active
+    AlertCry --> Active
+    AlertNoBaby --> Active

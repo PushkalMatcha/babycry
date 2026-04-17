@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --bg:            #0c0c0e;
+  --panel:         #111114;
+  --raised:        #18181c;
+  --hover:         #1f1f24;
+
+  --border:        rgba(255,255,255,0.07);
+  --border-strong: rgba(255,255,255,0.12);
+
+  --accent:        #6366f1;
+  --accent-hover:  #818cf8;
+  --accent-dim:    rgba(99,102,241,0.14);
+
+  --live:          #22c55e;
+  --live-dim:      rgba(34,197,94,0.13);
+
+  --danger:        #f43f5e;
+  --danger-dim:    rgba(244,63,94,0.12);
+
+  --amber:         #f59e0b;
+  --amber-dim:     rgba(245,158,11,0.11);
+
+  --tx-1:  #f0f0f2;
+  --tx-2:  #9898a6;
+  --tx-3:  #52525e;
+
+  --r:     6px;
+  --r-lg:  10px;
+}
+
+/* ─── Base ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  background: var(--bg);
+  color: var(--tx-1);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* thin scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+
+/* ─── Mobile: allow full-page scroll ───────────────────────── */
+@media (max-width: 768px) {
+  html, body, #root {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+}
